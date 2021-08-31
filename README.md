@@ -1,6 +1,6 @@
 # learning-webpack
 
-## start
+## day 1 start
 
 ### install
 
@@ -12,6 +12,16 @@ npm install webpack webpack-cli --save-dev
 
 ### Webpack 工作模式特性的作用
 
-## TODO
+### TODO
 
-### Webpack 打包后的结果是如何运作的
+- Webpack 打包后的结果是如何运作的
+
+## day 2 loader
+
+### loader 的使用配置
+
+### css-loader & style-loader
+
+### TODO
+
+- markdown loader
