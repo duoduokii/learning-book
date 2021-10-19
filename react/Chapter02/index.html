@@ -1,0 +1,66 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="../lib/react.development.js"></script>
+		<script src="../lib/react-dom.development.js"></script>
+		<script src="../lib/babel.min.js"></script>
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			class Child1 extends React.Component {
+				constructor(props) {
+					super(props);
+				}
+				render() {
+					return (
+						<div>
+							<p>父组件传递的文本内容：【{this.props.text}】</p>
+						</div>
+					);
+				}
+			}
+
+			class Child2 extends React.Component {
+				constructor(props) {
+					super(props);
+				}
+				render() {
+					return (
+						<div>
+							<input type="text" onChange={this.props.handleInput} />
+						</div>
+					);
+				}
+			}
+
+			class Father extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = {
+						text: "父组件文本内容",
+					};
+				}
+				handleInput(e) {
+					this.setState({
+						text: e.target.value,
+					});
+				}
+				render() {
+					return (
+						<div>
+							<h3>Child1</h3>
+							<Child1 text={this.state.text} />
+							<h3>Child2</h3>
+							<Child2 handleInput={(e) => this.handleInput(e)} />
+						</div>
+					);
+				}
+			}
+			ReactDOM.render(<Father></Father>, document.getElementById("app"));
+		</script>
+	</body>
+</html>
